@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 
+// These are symbolic constants, not variables!
 #define LOWER 0.0   // lower limit of table
 #define UPPER 300.0 // upper limit
 #define STEP 20.0   // step size
