@@ -4,7 +4,7 @@
  *
  * @brief Counts lines, words, and characters, with the loose definition that a
  * word is any sequence of characters that does not contain a blank, tab, or
- * newline.
+ * newline. Also prints input one word per line.
  */
 
 #include <stdio.h>
@@ -17,15 +17,20 @@ int main() {
 
     state = OUT;
 
-    for (lines = words = chars = 0; (nextChar = getchar()) != '|'; ++chars) {
+    for (lines = words = chars = 0; (nextChar = getchar()) != EOF; ++chars) {
         if (nextChar == '\n')
             ++lines;
 
-        if (nextChar == ' ' || nextChar == '\n' || nextChar == '\t')
+        // short-ciruiting is garunteed in C
+        if (nextChar == ' ' || nextChar == '\n' || nextChar == '\t') {
             state = OUT;
-        else if (state == OUT) {
+            putchar('\n');
+        } else if (state == OUT) {
             state = IN;
             ++words;
+            putchar(nextChar);
+        } else {
+            putchar(nextChar);
         }
     }
 
