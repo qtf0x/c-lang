@@ -29,7 +29,7 @@ int main() {
 int power(int base, int exp) {
     int result = 1;
 
-    for (int i = 0; i <= exp - 1; ++i)
+    for (; exp > 0; --exp)
         result *= base;
 
     return result;
