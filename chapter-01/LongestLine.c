@@ -16,7 +16,7 @@
  * @param maxline max line length to read
  * @return int length of line that was just read
  */
-int getline(char line[], int maxline);
+int getLine(char line[], int maxLine);
 
 /**
  * @brief Copy 'from' into 'to'; assume 'to' is big enough.
@@ -26,13 +26,13 @@ int getline(char line[], int maxline);
  */
 void copy(char to[], char from[]);
 
-main() {
-    int len;               // current line length
+int main() {
+    int len = 0;           // current line length
     int max = 0;           // maximum length seen so far
     char line[MAXLINE];    // current input line
     char longest[MAXLINE]; // longest line saved here
 
-    while ((len = getline(line, MAXLINE)) > 0) {
+    while ((len = getLine(line, MAXLINE)) > 0) {
         if (len > max) {
             max = len;
             copy(longest, line);
@@ -45,18 +45,18 @@ main() {
     return 0;
 }
 
-int getline(char line[], int maxLine) {
+int getLine(char line[], int maxLine) {
     int c = 0, i = 0;
 
-    for (; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
-        s[i] = c;
+    for (; i < maxLine - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
+        line[i] = c;
 
     if (c == '\n') {
-        s[i] = c;
+        line[i] = c;
         ++i;
     }
 
-    s[i] = '\0';
+    line[i] = '\0';
 
     return i;
 }
