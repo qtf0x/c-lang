@@ -1,3 +1,4 @@
+---
 Checks: 'bugprone*, cert*, clang-analyzer*, concurrency*, cppcoreguidelines*, hicpp*, misc*, modernize*, performance*, protability*, readability*,
         -*-braces-around-statements,
         -readability-identifier-length,
