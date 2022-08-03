@@ -3,7 +3,7 @@
  * @date 31.07.2022
  *
  * @brief Exercise 1-16. Revise the main routine of the longest-line program so
- * it will correctly print hte length of arbitrarily long input lines, and as
+ * it will correctly print the length of arbitrarily long input lines, and as
  * much as possible of the text.
  */
 
@@ -39,10 +39,20 @@ int main() {
             max = len;
             copy(longest, line);
         }
+
+        if (max >= MAXLINE - 1) // don't count overflow as a new line
+            break;
     }
 
     if (max > 0) // there was a line
-        printf("%s", longest);
+        printf("\n%s", longest);
+
+    // count and print overflow characters
+    for (int c = 0; max >= MAXLINE - 1 && (c = getchar()) != EOF && c != '\n';
+         ++max)
+        putchar(c);
+
+    printf("\n(%d)\n", max);
 
     return 0;
 }
