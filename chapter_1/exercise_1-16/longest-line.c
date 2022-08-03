@@ -2,7 +2,9 @@
  * @author qtf0x
  * @date 31.07.2022
  *
- * @brief Reads a set of text lines and prints the longest.
+ * @brief Exercise 1-16. Revise the main routine of the longest-line program so
+ * it will correctly print hte length of arbitrarily long input lines, and as
+ * much as possible of the text.
  */
 
 #include <stdio.h>
@@ -10,7 +12,7 @@
 #define MAXLINE 1000 // maximum input line size
 
 /**
- * @brief Read a line into line, return length.
+ * @brief Read a line into an array, return length.
  *
  * @param line array to store line
  * @param maxline max line length to read
@@ -21,7 +23,7 @@ int getLine(char line[], int maxLine);
 /**
  * @brief Copy 'from' into 'to'; assume 'to' is big enough.
  *
- * @param to array to copy line inot
+ * @param to array to copy line into
  * @param from array to copy line from
  */
 void copy(char to[], char from[]);

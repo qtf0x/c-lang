@@ -2,8 +2,8 @@
  * @author qtf0x
  * @date 14.06.2022
  *
- * @brief Print Fahrenheit-Celsius table for fahr = 0, 20, ..., 300
- *        (and then the other way around).
+ * @brief Exercise 1-15. Rewrite the temperature conversion program of
+ * Section 1.2 to use a function for conversion.
  */
 
 #include <stdio.h>
