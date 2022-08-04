@@ -61,10 +61,10 @@ int getLine(char line[], int maxLine) {
     int c = 0, i = 0;
 
     for (; i < maxLine - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
-        line[i] = c;
+        line[i] = (char)c;
 
     if (c == '\n') {
-        line[i] = c;
+        line[i] = (char)c;
         ++i;
     }
 
