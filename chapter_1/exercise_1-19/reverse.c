@@ -35,23 +35,21 @@ void reverse(char input[]);
 
 int main() {
     int next_char = 0;
-    char next_line[LINE_MAX];
-    str_clear(next_line);
+    char next_line[LINE_MAX]; // the current line being read
+    // str_clear(next_line);     // can't trust the compiler (unnecessary)
 
-    for (int i = 0; i < LINE_MAX - 1; ++i) {
-        if ((next_char = getchar()) == EOF)
-            break;
-
+    // keep reading lines until one is too long or EOF
+    for (int i = 0; i < LINE_MAX - 1 && (next_char = getchar()) != EOF; ++i) {
         if (next_char != '\n')
             next_line[i] = (char)next_char;
         else {
-            next_line[i] = '\0';
+            next_line[i] = '\0'; // string terminator instead of \n
             reverse(next_line);
 
             printf("%s\n", next_line);
 
-            // str_clear(next_line); // bugged
-            i = 0;
+            // str_clear(next_line); // unnecessary
+            i = -1; // will be incremented to 0 at end of loop
         }
     }
 
@@ -78,6 +76,7 @@ void reverse(char input[]) {
     int len = str_len(input);
     char swap = 0;
 
+    // integer division of len always gives correct number of swaps
     for (int i = 0; i < len / 2; ++i) {
         swap = input[i];
         input[i] = input[len - i - 1];
